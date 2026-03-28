@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>GuaguaTime RD</title>
+  <link rel="stylesheet" href="app.css">
+  <link rel="manifest" href="manifest.json">
+
+  <meta name="theme-color" content="#3b82f6">
+</head>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js");
+}
+</script>
+
+<body>
+
+<header class="header">
+  <h1 id="titulo">🚌 GuaguaTime RD</h1>
+  <div>
+    <button id="modoBtn">🌙</button>
+    <button id="langBtn">EN</button>
+    <button id="ahorroBtn">⚡</button>
+  </div>
+</header>
+
+<section class="mapa">
+<svg viewBox="0 0 400 250" width="100%" height="250">
+
+  <line x1="50" y1="150" x2="150" y2="80" stroke="yellow" stroke-width="3"/>
+  <line x1="150" y1="80" x2="300" y2="150" stroke="cyan" stroke-width="3"/>
+  <line x1="50" y1="150" x2="300" y2="150" stroke="lime" stroke-width="3"/>
+
+  <circle cx="50" cy="150" r="8" fill="red"/>
+  <text x="30" y="170">Los Mina</text>
+
+  <circle cx="150" cy="80" r="8" fill="red"/>
+  <text x="130" y="60">Naco</text>
+
+  <circle cx="300" cy="150" r="8" fill="red"/>
+  <text x="280" y="170">Gazcue</text>
+
+</svg>
+</section>
+
+<div class="alertas">
+  <div class="card" data-tipo="lluvia">
+    <h3 id="txtLluvia">🌧 Lluvia</h3>
+    <p class="estado">Inactiva</p>
+    <small id="descLluvia">Aumenta el tiempo de viaje</small>
+  </div>
+
+  <div class="card" data-tipo="pico">
+    <h3 id="txtPico">🚗 Hora Pico</h3>
+    <p class="estado">Inactiva</p>
+    <small id="descPico">Mayor tráfico</small>
+  </div>
+
+  <div class="card" data-tipo="paro">
+    <h3 id="txtParo">🛑 Paro</h3>
+    <p class="estado">Inactiva</p>
+    <small id="descParo">Sube el costo</small>
+  </div>
+</div>
+
+<form id="form">
+  <select id="origen"></select>
+  <select id="destino"></select>
+  <button id="btnBuscar">Buscar</button>
+</form>
+
+<div id="resultados"></div>
+
+<h2 id="favTitulo">⭐ Favoritas</h2>
+<div id="favoritas"></div>
+
+<section class="reglas">
+  <h2 id="tituloReglas">📐 Criterios de Cálculo</h2>
+
+  <h3 id="regTiempo">Tiempo</h3>
+
+
+  <p id="txtTiempo1">
+    El tiempo base es la suma de los minutos de cada tramo.
+  </p>
+
+  <p id="txtTiempo2">
+    Por cada condición activa: tiempo = tiempo × (1 + tiempo_pct / 100),
+    redondeado al minuto.
+  </p>
+
+  <h3 id="regCosto">Costo</h3>
+
+  <p id="txtCosto">
+    Es la suma del costo de cada tramo más el costo extra por condición activa.
+  </p>
+
+  <h3 id="regRanking">Ranking</h3>
+
+  <p id="txtRanking">
+    Por defecto se ordena por tiempo total. Puedes alternar a costo o transbordos.
+  </p>
+
+  <h3 id="regTipos">Tipos de transporte</h3>
+
+ 
+  <ul id="listaTipos">
+    <li>🚐 <b>Guagua</b> — transporte colectivo principal, tarifa baja</li>
+    <li>🚕 <b>Concho</b> — taxi colectivo de ruta fija</li>
+    <li>🚗 <b>Carro Público</b> — vehículo particular de ruta fija</li>
+    <li>🛵 <b>Motoconcho</b> — mototaxi, rápido pero más caro</li>
+    <li>🚶 <b>A pie</b> — sin costo adicional</li>
+  </ul>
+</section>
+
+<script type="module" src="js/main.js"></script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js');
+  }
+</script>
+
+</body>
+</html>

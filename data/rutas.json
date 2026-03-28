@@ -1,0 +1,7 @@
+[
+  { "origen": 1, "destino": 2, "tipo": "Concho", "costo": 50, "tiempo": 20 },
+  { "origen": 1, "destino": 2, "tipo": "Guagua", "costo": 40, "tiempo": 30 },
+  { "origen": 2, "destino": 3, "tipo": "Moto", "costo": 60, "tiempo": 15 },
+  { "origen": 3, "destino": 4, "tipo": "Concho", "costo": 45, "tiempo": 25 },
+  { "origen": 4, "destino": 5, "tipo": "Guagua", "costo": 35, "tiempo": 30 }
+]

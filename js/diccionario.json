@@ -1,0 +1,65 @@
+{
+  "es": {
+    "titulo": "🚌 GuaguaTime RD",
+    "buscar": "Buscar",
+    "favoritas": "⭐ Favoritas",
+
+    "lluvia": "🌧 Lluvia",
+    "pico": "🚗 Hora Pico",
+    "paro": "🛑 Paro de Transporte",
+
+    "activa": "Activa",
+    "inactiva": "Inactiva",
+
+    "guardar": "Guardar",
+    "eliminar": "Eliminar",
+    "limpiar": "Limpiar todas",
+
+    "no_rutas": "No hay rutas",
+    "no_favoritas": "No tienes favoritas",
+
+    "tiempo": "Tiempo",
+    "costo": "Costo",
+    "ranking": "Ranking",
+    "tipos": "Tipos de transporte",
+
+    "reglas_titulo": "📐 Criterios de Cálculo",
+    "reglas_tiempo_desc1": "El tiempo base es la suma de los minutos de cada tramo.",
+    "reglas_tiempo_desc2": "Por cada condición activa: tiempo = tiempo × (1 + tiempo_pct / 100), redondeado al minuto.",
+    "reglas_costo_desc": "Es la suma del costo de cada tramo más el costo extra por condición activa.",
+    "reglas_ranking_desc": "Por defecto se ordena por tiempo total. Puedes alternar a costo o transbordos.",
+    "reglas_tipos_desc": "Tipos de transporte"
+  },
+
+  "en": {
+    "titulo": "🚌 GuaguaTime RD",
+    "buscar": "Search",
+    "favoritas": "⭐ Favorites",
+
+    "lluvia": "🌧 Rain",
+    "pico": "🚗 Rush Hour",
+    "paro": "🛑 Transport Strike",
+
+    "activa": "Active",
+    "inactiva": "Inactive",
+
+    "guardar": "Save",
+    "eliminar": "Delete",
+    "limpiar": "Clear all",
+
+    "no_rutas": "No routes found",
+    "no_favoritas": "No favorites yet",
+
+    "tiempo": "Time",
+    "costo": "Cost",
+    "ranking": "Ranking",
+    "tipos": "Transport types",
+
+    "reglas_titulo": "📐 Calculation Criteria",
+    "reglas_tiempo_desc1": "Base time is the sum of minutes of each segment.",
+    "reglas_tiempo_desc2": "For each active condition: time = time × (1 + time_pct / 100), rounded to the nearest minute.",
+    "reglas_costo_desc": "It is the sum of each segment cost plus extra cost per condition.",
+    "reglas_ranking_desc": "By default sorted by total time. You can switch to cost or transfers.",
+    "reglas_tipos_desc": "Transport types"
+  }
+}
