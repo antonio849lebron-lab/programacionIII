@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mixología Lounge — Descubre recetas de cócteles por nombre o ingrediente. Busca, explora y guarda tus favoritos." />
+  <meta name="theme-color" content="#0f0d15" />
+  <title>Mixología Lounge — Explorador de Cócteles</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════ HEADER / HERO ══════════ -->
+  <header class="header" id="hero">
+    <div class="header-overlay"></div>
+
+    <!-- Partículas de fondo animadas -->
+    <div class="particles" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="header-content">
+      <span class="mini-tag">🍸 Recetas • Sabores • Mixología</span>
+      <h1>Mixología <em>Lounge</em></h1>
+      <p>Descubre cócteles irresistibles por nombre o ingrediente. <br/>Más de 500 recetas al alcance de un clic.</p>
+    </div>
+  </header>
+
+  <!-- ══════════ MAIN CONTENT ══════════ -->
+  <main class="container">
+
+    <!-- ── Barra de búsqueda ── -->
+    <section class="search-section" aria-label="Búsqueda de cócteles">
+      <form class="search-box" id="searchForm" autocomplete="off">
+
+        <!-- Selector de modo de búsqueda (radio buttons) -->
+        <div class="search-mode" role="radiogroup" aria-label="Modo de búsqueda">
+          <label class="radio-pill active" id="radioName">
+            <input type="radio" name="searchMode" value="name" checked />
+            <span class="radio-icon">🔤</span>
+            <span>Por Nombre</span>
+          </label>
+          <label class="radio-pill" id="radioIngredient">
+            <input type="radio" name="searchMode" value="ingredient" />
+            <span class="radio-icon">🧪</span>
+            <span>Por Ingrediente</span>
+          </label>
+        </div>
+
+        <!-- Input + Botones -->
+        <div class="search-controls">
+          <div class="input-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="searchInput" placeholder="Busca tu cóctel ideal... Ej: Margarita, Vodka, Mojito" aria-label="Término de búsqueda" />
+            <button type="button" id="clearBtn" class="clear-btn" aria-label="Limpiar búsqueda" hidden>&times;</button>
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" id="searchBtn" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              Buscar
+            </button>
+            <button type="button" id="randomBtn" class="btn btn-secondary">
+              🎲 Aleatorio
+            </button>
+            <button type="button" id="favoritesToggle" class="btn btn-ghost" aria-label="Ver favoritos">
+              ❤️ <span class="fav-count" id="favCount">0</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- ── Estado / Mensajes ── -->
+    <section id="statusMessage" class="status-message" aria-live="polite"></section>
+
+    <!-- ── Skeletons de carga ── -->
+    <section id="loadingSkeletons" class="results-grid" hidden aria-hidden="true">
+      <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line w80"></div><div class="skeleton-line w50"></div><div class="skeleton-line w100"></div><div class="skeleton-line w70"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line w80"></div><div class="skeleton-line w50"></div><div class="skeleton-line w100"></div><div class="skeleton-line w70"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line w80"></div><div class="skeleton-line w50"></div><div class="skeleton-line w100"></div><div class="skeleton-line w70"></div></div></div>
+    </section>
+
+    <!-- ── Resultados ── -->
+    <section id="results" class="results-grid" aria-label="Resultados de búsqueda"></section>
+
+  </main>
+
+  <!-- ══════════ MODAL DETALLE ══════════ -->
+  <div class="modal-overlay" id="modalOverlay" hidden>
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar">&times;</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ══════════ SCROLL-TO-TOP ══════════ -->
+  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">🍸 Mixología Lounge</p>
+      <p>&copy; 2026 · Grupo F · Powered by <a href="https://www.thecocktaildb.com/" target="_blank" rel="noopener">TheCocktailDB</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
